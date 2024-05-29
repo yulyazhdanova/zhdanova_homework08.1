@@ -1,9 +1,9 @@
-package tags;
-
 import org.example.TaskList;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tags.Positive;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RenameTaskListTest {
 
@@ -11,15 +11,14 @@ public class RenameTaskListTest {
 
     @BeforeEach
     void setUp(){
-        taskList = new TaskList("Список задач №1");
+        taskList = new TaskList("Новый список задач");
     }
 
+    @Positive
     @Test
     void testListRename(){
         final String expectedName = "Список задач №1";
         taskList.setName(expectedName);
-        Assertions.assertEquals(expectedName,taskList.getName(),"Неверное имя списка после переименования");
+        assertEquals(expectedName,taskList.getName(),"Неверное имя списка после переименования");
     }
-
-
 }

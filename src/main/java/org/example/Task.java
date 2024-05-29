@@ -11,10 +11,10 @@ public class Task {
     private boolean isCompleted;
     private final Priority priority;
 
-    public Task(String name, String description, int timeToDo, boolean status, Priority priority) {
+    public Task(String name, String description, LocalDate timeToDo, boolean status, Priority priority) {
         this.name = name;
         this.description = description;
-        this.timeToDo = LocalDate.ofEpochDay(timeToDo);
+        this.timeToDo = timeToDo;
         this.isCompleted = status;
         this.priority = priority;
     }

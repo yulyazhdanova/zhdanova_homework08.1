@@ -17,5 +17,7 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform(){
+        includeTags("positive | negative")
+    }
 }

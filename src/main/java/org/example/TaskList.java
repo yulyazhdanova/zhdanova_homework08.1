@@ -1,6 +1,5 @@
 package org.example;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -38,7 +37,7 @@ public class TaskList {
         }
     }
 
-    public int countTask(){
+    public int numberTask(){
         return taskList.size();
     }
 
@@ -48,13 +47,13 @@ public class TaskList {
                 .collect(Collectors.toList());
     }
 
-    public List<Task> getUncompletedTask (boolean isCompleted){
+    public List<Task> getUncompletedTask (){
         return taskList.stream()
                 .filter(task -> !task.isCompleted())
                 .collect(Collectors.toList());
     }
 
-    public List<Task> getExpiredTask (LocalDate timeToDo) {
+    public List<Task> getExpiredTask () {
         return  taskList.stream()
                 .filter(Task::isExpired)
                 .filter(task -> !task.isCompleted())
@@ -64,7 +63,7 @@ public class TaskList {
     public void removeTaskByName(String name){
         taskList.removeIf(task -> Objects.equals(task.getName(), name));
     }
-    public void removeCompletedTask(boolean isCompleted){
+    public void removeCompletedTask(){
         taskList.removeIf(Task::isCompleted);
     }
 
@@ -72,4 +71,6 @@ public class TaskList {
         taskList.clear();
     }
 
+    public void add(Task task1) {
+    }
 }
